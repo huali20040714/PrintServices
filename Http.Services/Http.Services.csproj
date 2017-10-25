@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{44B89728-26A5-432E-9EA6-7E5E26A11CE9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Http.Services</RootNamespace>
+    <AssemblyName>Http.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Publish\HttpServices\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Publish\HttpServices\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\Topshelf\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Logger.cs" />
+    <Compile Include="Controllers\IcCardController.cs" />
+    <Compile Include="Controllers\PrintController.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Base\Base.csproj">
+      <Project>{63920228-c648-473e-acc5-3f560de33f40}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HtmlRenderer.WinForms\HtmlRenderer.WinForms.csproj">
+      <Project>{1b058920-24b4-4140-8ae7-c8c6c38ca52d}</Project>
+      <Name>HtmlRenderer.WinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HtmlRenderer\HtmlRenderer.csproj">
+      <Project>{fe611685-391f-4e3e-b27e-d3150e51e49b}</Project>
+      <Name>HtmlRenderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HTTPServer\HttpServerLib\HttpServerLib.csproj">
+      <Project>{c2310e13-8d59-4632-bf91-203bff2ffe4f}</Project>
+      <Name>HttpServerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IcReadCardServices\IcReadCardServices.csproj">
+      <Project>{16f042cb-9dc5-46c8-9d3f-7a9ea3deb810}</Project>
+      <Name>IcReadCardServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PrintServices\PrintServices.csproj">
+      <Project>{5ea83ecb-d60a-420b-bd50-41b1701a2b60}</Project>
+      <Name>PrintServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Topshelf\Topshelf.Log4Net\Topshelf.Log4Net.csproj">
+      <Project>{0ee64d46-5728-45db-8d0e-044ce2677fd8}</Project>
+      <Name>Topshelf.Log4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Topshelf\Topshelf\Topshelf.csproj">
+      <Project>{a52ad64d-6455-4a22-8ccf-581851086578}</Project>
+      <Name>Topshelf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
